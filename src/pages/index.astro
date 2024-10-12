@@ -1,31 +1,23 @@
 ---
+
+import MainLayout from "../layouts/MainLayout.astro"
+
 const name = "Ernesto"
 ---
+		<MainLayout title="Home">
+			<h1>{name}</h1>
+				<p>Momento actual: {new Date().toLocaleTimeString() }</p>
+				<p id="current-time">Momento actual real:</p>
+				<footer>Año: 2024</footer>
+		
+				<script>
+					const footer= document.querySelector("footer") as HTMLElement;
+					const currentTime = document.querySelector("#current-time") as HTMLParagraphElement
+		
+					const currenYear: number = new Date().getFullYear();
+					footer.innerText =`Año: ${currenYear}`;
+					currentTime.innerText= `Momento actual real:${new Date().toLocaleTimeString()} `
+				</script>
+		</MainLayout>
+	
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<nav>
-			<a href="/">Home page</a><a href="/about">About</a><a href="/contact">Contact</a>
-		</nav>
-		<h1>{name}</h1>
-		<p>Momento actual: {new Date().toLocaleTimeString() }</p>
-		<p id="current-time">Momento actual real:</p>
-		<footer>Año: 2024</footer>
-
-		<script>
-			const footer= document.querySelector("footer") as HTMLElement;
-			const currentTime = document.querySelector("#current-time") as HTMLParagraphElement
-
-			const currenYear: number = new Date().getFullYear();
-			footer.innerText =`Año: ${currenYear}`;
-			currentTime.innerText= `Momento actual real:${new Date().toLocaleTimeString()} `
-		</script>
-	</body>
-</html>
